@@ -33,16 +33,36 @@ mkdir -p lessons exports assets
 touch lessons/lesson_01.py
 ```
 
-## 4) Launch marimo
+## 4) Build content in VS Code
+
+With the marimo VS Code extension installed, you can open and run marimo notebooks directly inside VS Code.
+
+Recommended workflow:
+
+```bash
+cd ~/Github/marimoSetup
+code .
+```
+
+1. Open [lessons/helloWorld.py](lessons/helloWorld.py) or another marimo `.py` file.
+2. If it does not open as a notebook automatically, run `marimo: Open as marimo notebook` from the Command Palette.
+3. For a new notebook, run `marimo: New marimo notebook`.
+4. Edit and run cells inside VS Code.
+
+`uv` still manages the environment in the background. The extension uses your project setup; you do not need to activate a venv manually.
+
+## 5) Browser fallback
+
+If you want or need the standalone marimo app, run:
 
 ```bash
 cd ~/Github/marimoSetup
 uv run marimo edit lessons/lesson_01.py
 ```
 
-Open the localhost URL printed in the terminal.
+That starts marimo and opens the notebook through a local URL.
 
-## 5) Optional export for students
+## 6) Optional export for students
 
 ```bash
 uv run marimo export html lessons/lesson_01.py --output exports/lesson_01.html
@@ -51,4 +71,4 @@ uv run marimo export html lessons/lesson_01.py --output exports/lesson_01.html
 ## Done when
 
 - `uv --version` works
-- marimo launches from `uv run marimo edit lessons/lesson_01.py`
+- marimo opens inside VS Code with the extension, or from `uv run marimo edit lessons/lesson_01.py`
